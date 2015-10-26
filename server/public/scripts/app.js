@@ -16,9 +16,12 @@ $(document).ready(function(){
             createCarousel(peopleArray);
             updateIndexPoints(peopleArray);
 
+
+
         }
     })
 
+    //startTimer(peopleArray);
 
     $("#tracker").on('click', '#next', nextSlide);
 
@@ -49,21 +52,27 @@ function createNavButtons(tracker){
 
 function nextSlide(){
     //used with event listener to move to the next right index point on the DOM
+    //stopTimer()//not working
     indexTracker++;
     if(indexTracker== peopleArray.length){
         indexTracker = 0;
     }
+
     updateIndexPoints();
+
     console.log("I'm clicked");
 }
 
 function prevSlide(){
     //used with event listener to move to the next left index point on the DOM
+    //stopTimer();
     indexTracker--;
     if(indexTracker < 0){
         indexTracker = peopleArray.length -1;
     }
+
     updateIndexPoints();
+
 }
 
 function updateIndexPoints(){
@@ -81,14 +90,33 @@ function updateDom(){
         $(this).empty();
     for (var i = 0; i < peopleArray.length; i++){
         if (i == indexTracker) {
-            $(this).append("<div class = 'person'>"
+            $(this).html("<div class = 'person'>"
+                + "<p><img src='"+ peopleArray[i].imageURL + "'></p>"
                 + "<h1>Name: " + peopleArray[i].name + "</h1>"
-                + "<h3>Github: " + peopleArray[i].github + "</h3>"
+                + "<h3>Github: <a target='_blank' href='" + peopleArray[i].github + "'>" + peopleArray[i].github + "</a></h3>"
                 + "<h3>Shoutout: " + peopleArray[i].shoutout + "</h3>"
                 + "</div>").fadeIn(500);
         }
         }
     })
+}
+
+var timer = setInterval(nextSlide, 10000);
+
+function startTimer() {
+    //need to resolve resetting after nav buttons are clicked
+    clearInterval(timer);
+    setInterval(nextSlide, 10000);
+    //indexTracker++;
+    //if (indexTracker == peopleArray.length) {
+    //    indexTracker = 0;
+    //}
+
+}
+
+function stopTimer(){
+    //not functioning yet
+    clearInterval(timer);
 }
 
 

@@ -1,7 +1,9 @@
 
 #mainContent {
     background-color: #8ec5ca;
+    height: 600px;
 }
+
 
 .nav-button{
     width: 100px;
@@ -30,4 +32,11 @@
 
 .index-point-active {
     background-color: #1121ff;
+}
+
+img {
+    height: 300px;
+    width: 300px;
+}
+
 }
