@@ -5,6 +5,7 @@ var indexTracker = 0;
 
 
 $(document).ready(function(){
+    //I'm not sure why my page is jumping when it loads, might have to do with the fade.
     $.ajax({
         type : "GET",
         url  : "/data",
@@ -75,20 +76,21 @@ function updateIndexPoints(){
         updateDom();
     }
 
-
-
 function updateDom(){
-    $("#mainContent").empty();
+    $("#mainContent").fadeOut(500, function(){
+        $(this).empty();
     for (var i = 0; i < peopleArray.length; i++){
         if (i == indexTracker) {
-            $("#mainContent").append("<div class = 'person'>"
+            $(this).append("<div class = 'person'>"
                 + "<h1>Name: " + peopleArray[i].name + "</h1>"
                 + "<h3>Github: " + peopleArray[i].github + "</h3>"
                 + "<h3>Shoutout: " + peopleArray[i].shoutout + "</h3>"
-                + "</div>");
+                + "</div>").fadeIn(500);
         }
-    }
+        }
+    })
 }
+
 
 //PROCESS NOTES
 //$("#mainContent").append("<div class = 'person'></div>");

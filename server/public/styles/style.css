@@ -1,23 +1,33 @@
 
+#mainContent {
+    background-color: #8ec5ca;
+}
 
 .nav-button{
     width: 100px;
     text-align: center;
     display: inline-block;
-    border: 1px solid black;
 
+}
+
+#tracker {
+    text-align: center;
+}
+
+.nav-button:hover{
+    cursor: pointer;
 }
 .index-point {
     width: 15px;
     height: 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin: 0 5px;
-    background-color: #5a6f9d;
+    background-color: #809d9d;
     border: 1px solid black;
     display: inline-block;
 
 }
 
 .index-point-active {
-    background-color: #ff4d2d;
+    background-color: #1121ff;
 }
