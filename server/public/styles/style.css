@@ -1,0 +1,23 @@
+
+
+.nav-button{
+    width: 100px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid black;
+
+}
+.index-point {
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    margin: 0 5px;
+    background-color: #5a6f9d;
+    border: 1px solid black;
+    display: inline-block;
+
+}
+
+.index-point-active {
+    background-color: #ff4d2d;
+}
